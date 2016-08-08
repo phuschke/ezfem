@@ -12,3 +12,4 @@ add_subdirectory(fem)
 add_executable(main main.cpp)
 target_link_libraries (main fem)
 
+ADD_SUBDIRECTORY(test)
