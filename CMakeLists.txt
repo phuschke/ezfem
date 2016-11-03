@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.5)
+cmake_minimum_required (VERSION 3.2)
 project (ezfem)
 
 set(CMAKE_MACOSX_RPATH 1)
