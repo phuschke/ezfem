@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 2.8.11)
+cmake_minimum_required (VERSION 3.5)
 project (ezfem)
 
 set(CMAKE_MACOSX_RPATH 1)
@@ -12,4 +12,6 @@ add_subdirectory(fem)
 add_executable(main main.cpp)
 target_link_libraries (main fem)
 
-ADD_SUBDIRECTORY(test)
+add_subdirectory(test)
+#test Environment
+include(CTest)
