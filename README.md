@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ezfem.svg?branch=master)](https://travis-ci.org/ezfem)
+
 # ezfem
 A simple test
 
