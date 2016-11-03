@@ -6,6 +6,11 @@ set(BUILD_SHARED_LIBS on)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
 
+find_package(Boost COMPONENTS mpi REQUIRED)
+find_package(MPI REQUIRED)
+include_directories(${MPI_INCLUDE_PATH})
+
+
 add_subdirectory(examples)
 add_subdirectory(fem)
 
