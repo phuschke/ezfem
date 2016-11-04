@@ -9,7 +9,9 @@ int main(int argc, char* argv[])
 {
     boost::mpi::environment  env(argc, argv);
     boost::mpi::communicator world;
-	std::cout << "test successful" << std::endl;
+    std::cout << world.rank() << std::endl;
+    std::cout << "test successful" << std::endl;
+
 
 
 }

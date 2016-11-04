@@ -1,4 +1,7 @@
 enable_testing()
-add_executable(first_test first_test.cpp ${MPI_C++_INCLUDE_PATH})
+
+set(test first_test)
+add_executable(${test} ${test}.cpp)
 target_link_libraries(first_test ${MPI_LIBRARIES} ${Boost_LIBRARIES})
-add_test(c_test_first_test first_test)
+set(MPIEXEC_NUMPROC_FLAG -np 4)
+add_test(NAME c_test_first_test COMMAND ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} ${test})
