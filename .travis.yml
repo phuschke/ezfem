@@ -7,10 +7,11 @@ compiler:
 before_install:
     - pip install --user cpp-coveralls
     - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+    - sudo add-apt-repository ppa:ginggs/boost161 -y
     - echo "yes" | sudo add-apt-repository 'deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.9 main'
     - wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
     - sudo apt-get -qq update
-    - sudo apt-get install -y g++-6 clang-3.9 libgfortran-6-dev libgcc-6-dev libiomp-dev doxygen python-dev python-instant libboost1.59-all-dev libeigen3-dev libopenblas-dev gfortran
+    - sudo apt-get install -y g++-6 clang-3.9 libgfortran-6-dev libgcc-6-dev libiomp-dev doxygen python-dev python-instant libboost1.61-all-dev libeigen3-dev libopenblas-dev gfortran
     - sudo apt-get install -y lcov curl
 before_script:
     - mkdir build
