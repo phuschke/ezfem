@@ -12,8 +12,13 @@ before_install:
     - sudo apt-get -qq update
     - sudo apt-get install -y g++-6 clang-3.9 libgfortran-6-dev libgcc-6-dev libiomp-dev doxygen python-dev python-instant libboost-all-dev libeigen3-dev libopenblas-dev gfortran
     - sudo apt-get install -y lcov curl
-    - sudo apt-get install -y libopenmpi-dev
-    - sudo apt-get install -y libboost-mpi-dev
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    - boost-latest
+    packages:
+    - libboost1.55-all-dev
 before_script:
     - mkdir build
     - cd build
