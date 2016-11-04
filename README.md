@@ -1,5 +1,8 @@
 [![Build Status](https://travis-ci.org/phuschke/ezfem.svg?branch=master)](https://travis-ci.org/ezfem)
 
+[![Coverage Status](https://coveralls.io/repos/github/phuschke/ezfem/badge.svg?branch=master)](https://coveralls.io/github/phuschke/ezfem?branch=master)
+
+
 # ezfem
 A simple test
 
