@@ -21,4 +21,4 @@ before_script:
     - if [[ "$CXX" == "clang++" ]]; then CXX=clang++-3.9 cmake ..; fi
 script:
     - make -j2
-    - ctest
+    - ctest -V
