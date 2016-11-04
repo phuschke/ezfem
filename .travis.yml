@@ -7,7 +7,7 @@ compiler:
 before_install:
     - pip install --user cpp-coveralls
     - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-    - sudo add-apt-repository ppa:ginggs/boost161 -y
+    - echo "yes" | sudo add-apt-repository ppa:ginggs/boost161 -y
     - echo "yes" | sudo add-apt-repository 'deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.9 main'
     - wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
     - sudo apt-get -qq update
