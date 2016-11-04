@@ -21,41 +21,62 @@ int main(int argc, char* argv[])
     std::cout << "4 x 1 = " << a << std::endl;
 
     std::vector<int> recvCount;
-    recvCount.push_back(1);
-    recvCount.push_back(2);
-    recvCount.push_back(1);
-    recvCount.push_back(0);
+    recvCount.push_back( 0);
+    recvCount.push_back( 1);
+    recvCount.push_back( 2);
+    recvCount.push_back( 3);
 
     std::vector<int> displ;
-    displ.push_back(0);
-    displ.push_back(1);
-    displ.push_back(3);
-    displ.push_back(4);
+    displ.push_back(0+1);
+    displ.push_back(1+1);
+    displ.push_back(3+1);
+    displ.push_back(4+1);
 
 
     Eigen::VectorXd vector;
-    vector.setConstant(3, world.rank());
+    vector.setConstant(world.rank(), world.rank());
+
 
     Eigen::VectorXd vectorGlobal;
-    vectorGlobal.setZero(6);
+    vectorGlobal.setZero(16);
 
-    std::cout << vector << std::endl;
 
     world.barrier();
 
-    MPI_Allgatherv(vector.data(),
-                   vector.size(),
-                   MPI_DOUBLE,
-                   vectorGlobal.data(),
-                   recvCount.data(),
-                   displ.data(),
-                   MPI_DOUBLE,
-                   MPI_COMM_WORLD);
+    std::cout << vector << std::endl;
+//    MPI_Allgatherv(vector.data(),
+//                   vector.size(),
+//                   MPI_DOUBLE,
+//                   vectorGlobal.data(),
+//                   recvCount.data(),
+//                   displ.data(),
+//                   MPI_DOUBLE,
+//                   MPI_COMM_WORLD);
 
 
-    if (world.rank()== 0)
+
+    world.barrier();
+    if (world.rank()== 2)
+        std::cout << "******************++" << std::endl;
+
+    boost::mpi::gatherv(world,vector.data(),vector.size(),vectorGlobal.data(), recvCount,0);
+    boost::mpi::broadcast(world, vectorGlobal.data(),vectorGlobal.size(),0);
+
+
+    world.barrier();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    if (world.rank()== 2)
         std::cout << vectorGlobal << std::endl;
 
+
+
+
+
+    world.barrier();
+
+    MPI_Barrier(MPI_COMM_WORLD);
 
     std::cout << "test successful" << std::endl;
 
