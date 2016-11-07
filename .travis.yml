@@ -7,7 +7,6 @@ compiler:
 before_install:
     - pip install --user cpp-coveralls
     - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-    - echo "yes" | sudo add-apt-repository ppa:ginggs/boost161 -y
     - echo "yes" | sudo add-apt-repository 'deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.9 main'
     - wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
     - wget -O boost_1_61_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.61.0/boost_1_61_0.tar.gz/download
