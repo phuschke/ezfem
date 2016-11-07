@@ -20,7 +20,6 @@ before_install:
     - cat project-config.jam
     - sudo ./b2 --with-mpi --with-serialization -d0 -q install
     - cd ..
-    - locate bin/mpicc
 before_script:
     - mkdir build
     - cd build
