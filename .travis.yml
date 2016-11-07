@@ -11,7 +11,7 @@ before_install:
     - echo "yes" | sudo add-apt-repository 'deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.9 main'
     - wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
     - wget -O boost_1_61_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.61.0/boost_1_61_0.tar.gz/download
-    - tar xvfz boost_1_61_0.tar.gz
+    - tar xfz boost_1_61_0.tar.gz
     - cd boost_1_61_0/
     - ./bootstrap.sh --prefix=/usr/local
     - echo 'using mpi ;' >> project-config.jam
