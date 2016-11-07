@@ -15,7 +15,7 @@ before_install:
     - cd boost_1_61_0/
     - ./bootstrap.sh --prefix=/usr/local
     - echo 'using mpi ;' >> project-config.jam
-    - sudo ./b2 --with-mpi --with-serialization install
+    - sudo ./b2 --with-mpi --with-serialization -d0 -q install
     - sudo apt-get -qq update
     - sudo apt-get install -y g++-6 clang-3.9 libgfortran-6-dev libgcc-6-dev libiomp-dev doxygen python-dev python-instant libboost1.61-all-dev libeigen3-dev libopenblas-dev gfortran
     - sudo apt-get install -y lcov curl
