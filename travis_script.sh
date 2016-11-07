@@ -4,5 +4,5 @@ cd boost_1_61_0/
 ./bootstrap.sh --prefix=/usr/local
 echo 'using mpi : /usr/bin/mpicxx ;' >> project-config.jam
 cat project-config.jam
-sudo ./b2 --with-mpi --with-serialization -d0 -q install
+sudo ./b2 --with-mpi --with-serialization --debug-configuration -q install
 cd ..
