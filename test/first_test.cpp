@@ -59,8 +59,10 @@ int main(int argc, char* argv[])
     if (world.rank()== 2)
         std::cout << "******************++" << std::endl;
 
-    boost::mpi::gatherv(world,vector.data(),vector.size(),vectorGlobal.data(), recvCount,0);
-    boost::mpi::broadcast(world, vectorGlobal.data(),vectorGlobal.size(),0);
+//    boost::mpi::all_gather(world,vector.data(),vector.size(),vectorGlobal.data());
+    MPI_Allgatherv(vector.data(),vector.size(),MPI_DOUBLE, vectorGlobal.data(), recvCount.data(), displ.data(), MPI_DOUBLE, MPI_COMM_WORLD);
+
+
 
 
     world.barrier();

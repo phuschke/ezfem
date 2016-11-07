@@ -10,14 +10,13 @@ before_install:
     - echo "yes" | sudo add-apt-repository 'deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.9 main'
     - wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
     - sudo apt-get -qq update
-    - sudo apt-get install -y g++-6 clang-3.9 libgfortran-6-dev libgcc-6-dev libiomp-dev doxygen python-dev python-instant libeigen3-dev libopenblas-dev gfortran
+    - sudo apt-get install -y g++-6 clang-3.9 libgfortran-6-dev libgcc-6-dev libiomp-dev libboost1.55-all-dev libboost-mpi1.55.0 doxygen python-dev python-instant libeigen3-dev libopenblas-dev gfortran
     - sudo apt-get install -y lcov curl
-    - sh travis_script.sh
 before_script:
     - mkdir build
     - cd build
-    - if [[ "$CXX" == "g++" ]]; then CXX=g++-6 cmake -DBOOST_ROOT=/usr/local -DBoost_NO_SYSTEM_PATHS=TRUE -DBoost_NO_BOOST_CMAKE=TRUE ..; fi
-    - if [[ "$CXX" == "clang++" ]]; then CXX=clang++-3.9 cmake -DBOOST_ROOT=/usr/local -DBoost_NO_SYSTEM_PATHS=TRUE -DBoost_NO_BOOST_CMAKE=TRUE ..; fi
+    - if [[ "$CXX" == "g++" ]]; then CXX=g++-6 cmake ..; fi
+    - if [[ "$CXX" == "clang++" ]]; then CXX=clang++-3.9 cmake ..; fi
 script:
     - make -j2
     - ctest -V
