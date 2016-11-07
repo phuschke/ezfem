@@ -1,3 +1,6 @@
+which mpicxx
+which mpic++
+which mpicc
 wget -O boost_1_61_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.61.0/boost_1_61_0.tar.gz/download
 tar xfz boost_1_61_0.tar.gz
 cd boost_1_61_0/
