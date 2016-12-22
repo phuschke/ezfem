@@ -3,6 +3,10 @@
 using std::cout;
 using std::endl;
 
+
+///
+///@brief Documentation test
+///
 int main()
 {
 

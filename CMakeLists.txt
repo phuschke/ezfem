@@ -23,8 +23,6 @@ message(STATUS "Boost_SERIALIZATION_LIBRARY = ${Boost_SERIALIZATION_LIBRARY}")
 message(STATUS "BOOST_INCLUDE_DIR = ${BOOST_INCLUDE_DIR}")
 message(STATUS "BOOST_INCLUDE_DIRS = ${BOOST_INCLUDE_DIRS}")
 
-
-
 add_subdirectory(examples)
 add_subdirectory(fem)
 
@@ -34,3 +32,11 @@ target_link_libraries (main fem)
 add_subdirectory(test)
 #test Environment
 include(CTest)
+
+
+# doxygen documentation
+find_package(Doxygen REQUIRED)
+set(DOXYGEN_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+set(DOXYGEN_INPUT_DIRECTORY "${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/documentation")
+configure_file(Doxyfile ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+add_custom_target(doxygen ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
